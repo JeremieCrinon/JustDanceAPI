@@ -24,6 +24,7 @@ app.use(favicon(`${__dirname}/favicon.ico`))
 require('./src/routes/createJustDance')(app);
 require('./src/routes/login')(app);
 require('./src/routes/findJustDanceByPk')(app);
+require('./src/routes/findAllJustDance')(app);
 
 //Routes
 
