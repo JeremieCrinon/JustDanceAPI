@@ -28,6 +28,12 @@ require('./src/routes/findAllJustDance')(app);
 require('./src/routes/deleteJustDance')(app);
 require('./src/routes/updateJustDance')(app);
 
+require('./src/routes/createDanse')(app);
+require('./src/routes/findDanseByPk')(app);
+require('./src/routes/findAllDanses')(app);
+require('./src/routes/deleteDanse')(app);
+require('./src/routes/updateDanse')(app);
+
 //Routes
 
 app.use(({res}) => {

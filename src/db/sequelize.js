@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const JustDanceModel = require('../models/justDance');
+const DanceModel = require('../models/dance');
 const UserModel = require('../models/user');
 const bcrypt = require('bcrypt');
 
@@ -17,6 +18,7 @@ sequelize.authenticate()
 .catch(error => console.error(`Impossible de se connecter à la BDD : ${error}`));
 
 const JustDance = JustDanceModel(sequelize, DataTypes);
+const Dance = DanceModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
 
 // const initDb = () => {
@@ -35,5 +37,5 @@ const User = UserModel(sequelize, DataTypes);
 
 
 module.exports = {
-    JustDance, User
+    JustDance, Dance, User
 }

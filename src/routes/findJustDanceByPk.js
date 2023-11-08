@@ -5,7 +5,7 @@ module.exports = (app) => {
         JustDance.findByPk(req.params.id)
             .then(justDance => {
                 if(justDance === null) {
-                    const message = `Le pokémon demandé n'existe pas. Réessayez avec un autre identifiant.`;
+                    const message = `Le Just Dance demandé n'existe pas. Réessayez avec un autre identifiant.`;
                     return res.status(404).json({message: message});
                 }
                 const justDanceResult = justDance.get({ plain: true});
