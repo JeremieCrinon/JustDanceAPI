@@ -26,6 +26,7 @@ require('./src/routes/login')(app);
 require('./src/routes/findJustDanceByPk')(app);
 require('./src/routes/findAllJustDance')(app);
 require('./src/routes/deleteJustDance')(app);
+require('./src/routes/updateJustDance')(app);
 
 //Routes
 
