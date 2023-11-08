@@ -1,6 +1,6 @@
 const { ValidationError, UniqueConstraintError } = require('sequelize');
 const { JustDance } = require('../db/sequelize');
-const authorizedFields = ['Nom', 'Date_sortie', 'Contient_JD_unlimited', 'Contient_JD_plus'];
+const authorizedFields = ['Nom', 'Date_sortie', 'Contient_JD_unlimited', 'Contient_JD_plus', 'PlateFormes'];
 const auth = require('../auth/auth');
 
 module.exports = (app) => {
@@ -11,7 +11,20 @@ module.exports = (app) => {
                 return res.status(400).json({message});
             }
         }
-        JustDance.create(req.body)
+
+        const args = req.body;
+        console.log(args);
+
+        if(!args.PlateFormes) {
+            const message = 'La propriété \'PlateFormes\' est obligatoire pour créer un jeu.';
+            return res.status(400).json({message});
+        }
+
+        //Ajouter ici le code pour ajouter dans la table JustDancePlateFormes le jeu et les plate formes correspondantes
+
+        delete args.PlateFormes;
+
+        JustDance.create(args)
             .then(justDance => {
                 const justDanceResponse = justDance.get({ plain: true});
                 delete justDanceResponse.types_string;
